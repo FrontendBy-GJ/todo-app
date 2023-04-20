@@ -26,6 +26,9 @@ export default {
           500: 'hsl(235, 21%, 11%)',
         },
       },
+      backgroundImage: {
+        'mobile-light': "url('./assets/bg-mobile-light.jpg')",
+      },
     },
   },
   plugins: [],
