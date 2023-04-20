@@ -1,6 +1,6 @@
-const MoonIcon = () => {
+const MoonIcon = (props) => {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26">
+    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" {...props}>
       <path
         fill="#FFF"
         fillRule="evenodd"
