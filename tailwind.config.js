@@ -28,6 +28,7 @@ export default {
       },
       backgroundImage: {
         'mobile-light': "url('./assets/bg-mobile-light.jpg')",
+        checkBoxColor: `linear-gradient(to bottom right, hsl(192, 100%, 67%), hsl(280, 87%, 65%))`,
       },
     },
   },
