@@ -1,10 +1,8 @@
-import desktopLight from './assets/bg-desktop-light.jpg';
-import mobileLight from './assets/bg-mobile-light.jpg';
 import { useEffect, useState } from 'react';
 import Todo from './components/Todo';
-import { MoonIcon } from './icons';
 import FilterButtons from './components/FilterButtons';
 import Input from './components/Input';
+import Header from './components/Header';
 
 const App = () => {
   const [todos, setTodos] = useState(() => {
@@ -77,23 +75,8 @@ const App = () => {
 
   return (
     <section className="flex flex-col min-h-screen bg-lightTheme-100">
-      <header>
-        <picture>
-          <source
-            media="(max-width: 600px)"
-            srcSet={mobileLight}
-            sizes="375px"
-          />
-          <source srcSet={desktopLight} sizes="1440px" />
-          <img src={mobileLight} alt="mountains" className="absolute w-full" />
-        </picture>
-        <section className="flex justify-between pt-10 lg:pt-14 max-w-md mx-auto relative px-4 xl:max-w-xl xl:pt-20">
-          <h1 className="text-lightTheme-50 text-2xl md:text-3xl tracking-[10px] font-josefin">
-            TODO
-          </h1>
-          <MoonIcon />
-        </section>
-      </header>
+      <Header />
+
       <main>
         <section className="max-w-md mx-auto px-4 font-josefin xl:max-w-xl">
           <Input
