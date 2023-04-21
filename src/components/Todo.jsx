@@ -43,7 +43,7 @@ const Todo = ({ todos, handleToggle, handleDelete, darkMode }) => {
 
       <CrossIcon
         onClick={() => handleDelete(todos.id)}
-        className={`cursor-pointer  md:hidden ${
+        className={`cursor-pointer  xl:hidden ${
           darkMode ? 'text-darkTheme-200' : 'text-lightTheme-300'
         }`}
       />
