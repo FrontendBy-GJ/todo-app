@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import Todo from './components/Todo';
 import { MoonIcon } from './icons';
 import FilterButtons from './components/FilterButtons';
+import Input from './components/Input';
 
 const App = () => {
   const [todos, setTodos] = useState(() => {
@@ -95,18 +96,11 @@ const App = () => {
       </header>
       <main>
         <section className="max-w-md mx-auto px-4 font-josefin xl:max-w-xl">
-          <form onSubmit={handleSubmit}>
-            <div className="bg-lightTheme-50 relative mt-9 md:mt-4 lg:mt-6 rounded flex items-center gap-2 md:gap-4 p-4 xl:mt-10">
-              <button className="rounded-full border border-lightTheme-200 p-2"></button>
-              <input
-                type="text"
-                value={task}
-                placeholder="Create a new todo..."
-                onChange={handleChange}
-                className="w-full bg-transparent focus:outline-none text-sm md:text-base"
-              />
-            </div>
-          </form>
+          <Input
+            task={task}
+            handleSubmit={handleSubmit}
+            handleChange={handleChange}
+          />
 
           <ul className="relative bg-lightTheme-50 rounded mt-4 mb-5 shadow-lg">
             {todos.filter(FILTER_MAP[filter]).map((todo) => (
