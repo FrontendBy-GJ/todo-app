@@ -149,7 +149,7 @@ const App = () => {
 
           {todos.length !== 0 && (
             <div
-              className={`flex items-center justify-center p-4  rounded space-x-4  font-bold mb-10 xl:hidden ${
+              className={`flex items-center justify-center p-4  rounded space-x-4  font-bold mb-10 xl:hidden relative ${
                 darkMode
                   ? 'bg-darkTheme-400 text-darkTheme-100'
                   : 'bg-lightTheme-50 text-lightTheme-300'
