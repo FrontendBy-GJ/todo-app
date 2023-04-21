@@ -86,29 +86,29 @@ const App = () => {
           <source srcSet={desktopLight} sizes="1440px" />
           <img src={mobileLight} alt="mountains" className="absolute w-full" />
         </picture>
-        <section className="flex justify-between pt-10 lg:pt-20 max-w-xl mx-auto relative px-4">
-          <h1 className="text-lightTheme-50 text-2xl md:text-4xl tracking-[10px] font-josefin">
+        <section className="flex justify-between pt-10 lg:pt-14 max-w-md mx-auto relative px-4 xl:max-w-xl xl:pt-20">
+          <h1 className="text-lightTheme-50 text-2xl md:text-3xl tracking-[10px] font-josefin">
             TODO
           </h1>
           <MoonIcon />
         </section>
       </header>
       <main>
-        <section className="max-w-xl mx-auto px-4 font-josefin">
+        <section className="max-w-md mx-auto px-4 font-josefin xl:max-w-xl">
           <form onSubmit={handleSubmit}>
-            <div className="bg-lightTheme-50 relative mt-9 rounded flex items-center gap-4 p-4">
+            <div className="bg-lightTheme-50 relative mt-9 md:mt-4 lg:mt-6 rounded flex items-center gap-2 md:gap-4 p-4 xl:mt-10">
               <button className="rounded-full border border-lightTheme-200 p-2"></button>
               <input
                 type="text"
                 value={task}
                 placeholder="Create a new todo..."
                 onChange={handleChange}
-                className="w-full bg-transparent focus:outline-none"
+                className="w-full bg-transparent focus:outline-none text-sm md:text-base"
               />
             </div>
           </form>
 
-          <ul className="relative bg-lightTheme-50 rounded my-5">
+          <ul className="relative bg-lightTheme-50 rounded mt-4 mb-5 shadow-lg">
             {todos.filter(FILTER_MAP[filter]).map((todo) => (
               <Todo
                 key={todo.id}
@@ -119,7 +119,7 @@ const App = () => {
             ))}
 
             {todos.length !== 0 ? (
-              <li className="py-4 px-4 text-lightTheme-300 flex justify-between">
+              <li className="p-4 text-lightTheme-300 flex justify-between text-sm md:text-base">
                 <span>
                   {completed.length} {completed.length !== 1 ? 'items' : 'item'}{' '}
                   left
