@@ -34,8 +34,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- [Solution](https://www.frontendmentor.io/solutions/todo-app-mD_nhhB8BN)
+- [Live Site](https://garcia-jr-todo-app.netlify.app/)
 
 ## My process
 
