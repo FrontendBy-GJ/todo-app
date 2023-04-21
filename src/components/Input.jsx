@@ -8,7 +8,11 @@ const Input = ({ task, handleSubmit, handleChange, darkMode }) => {
           darkMode ? 'bg-darkTheme-400' : 'bg-lightTheme-50'
         } relative mt-9 md:mt-4 lg:mt-6 rounded flex items-center gap-2 md:gap-4 p-4 xl:mt-10`}
       >
-        <button className="rounded-full border border-lightTheme-200 p-2"></button>
+        <button
+          className={`rounded-full border p-2 ${
+            darkMode ? 'border-darkTheme-200' : 'border-lightTheme-200'
+          }`}
+        ></button>
         <input
           type="text"
           value={task}
