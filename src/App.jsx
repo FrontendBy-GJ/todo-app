@@ -14,7 +14,9 @@ const App = () => {
   });
   const [task, setTask] = useState('');
   const [filter, setFilter] = useState('All');
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(
+    () => localStorage.getItem('dark_mode') === 'true'
+  );
 
   const FILTER_MAP = {
     All: () => true,
@@ -27,6 +29,10 @@ const App = () => {
   useEffect(() => {
     localStorage.setItem('todos', JSON.stringify(todos));
   }, [todos]);
+
+  useEffect(() => {
+    localStorage.setItem('dark_mode', darkMode);
+  }, [darkMode]);
 
   const handleChange = (e) => {
     setTask(e.target.value);
