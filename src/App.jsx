@@ -122,6 +122,17 @@ const App = () => {
                   {completed.length} {completed.length !== 1 ? 'items' : 'item'}{' '}
                   left
                 </span>
+                <span className="hidden xl:inline space-x-4">
+                  {FILTER_NAMES.map((name) => (
+                    <FilterButtons
+                      key={name}
+                      name={name}
+                      setFilter={setFilter}
+                      isPressed={name === filter}
+                      darkMode={darkMode}
+                    />
+                  ))}
+                </span>
                 <button
                   onClick={clearComplete}
                   className="hover:text-lightTheme-400"
@@ -138,7 +149,7 @@ const App = () => {
 
           {todos.length !== 0 && (
             <div
-              className={`flex items-center justify-center p-4  rounded space-x-4  font-bold mb-10 ${
+              className={`flex items-center justify-center p-4  rounded space-x-4  font-bold mb-10 xl:hidden ${
                 darkMode
                   ? 'bg-darkTheme-400 text-darkTheme-100'
                   : 'bg-lightTheme-50 text-lightTheme-300'
