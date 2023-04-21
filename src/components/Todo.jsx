@@ -5,7 +5,7 @@ const Todo = ({ todos, handleToggle, handleDelete }) => {
   return (
     <li
       key={todos.id}
-      className="border-b last:border-none flex justify-between items-center p-4 gap-4 text-lightTheme-400"
+      className="border-b last:border-none flex justify-between items-center p-4 gap-2 md:gap-4 text-lightTheme-400"
     >
       <span className="relative flex justify-center text-lightTheme-50">
         <input
@@ -26,7 +26,7 @@ const Todo = ({ todos, handleToggle, handleDelete }) => {
       </span>
       <label
         htmlFor={todos.id}
-        className={`cursor-pointer transition flex-1 ${
+        className={`cursor-pointer transition flex-1 text-xs md:text-base ${
           todos.complete ? 'line-through text-lightTheme-300' : ''
         }`}
       >
@@ -35,7 +35,7 @@ const Todo = ({ todos, handleToggle, handleDelete }) => {
 
       <CrossIcon
         onClick={() => handleDelete(todos.id)}
-        className="cursor-pointer"
+        className="cursor-pointer text-lightTheme-300 md:hidden"
       />
     </li>
   );
