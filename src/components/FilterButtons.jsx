@@ -5,7 +5,9 @@ const FilterButtons = ({ name, isPressed, setFilter }) => {
     <button
       aria-pressed={isPressed}
       onClick={() => setFilter(name)}
-      className={`hover:text-lightTheme-400 ${isPressed ? 'text-primary' : ''}`}
+      className={`hover:text-lightTheme-400 text-sm md:text-base ${
+        isPressed ? 'text-primary' : ''
+      }`}
     >
       {name}
     </button>
