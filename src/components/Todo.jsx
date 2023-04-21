@@ -1,11 +1,15 @@
 import React from 'react';
 import { CheckIcon, CrossIcon } from '../icons';
 
-const Todo = ({ todos, handleToggle, handleDelete }) => {
+const Todo = ({ todos, handleToggle, handleDelete, darkMode }) => {
   return (
     <li
       key={todos.id}
-      className="border-b last:border-none flex justify-between items-center p-4 gap-2 md:gap-4 text-lightTheme-400"
+      className={`border-b last:border-none flex justify-between items-center p-4 gap-2 md:gap-4 transition-colors duration-300  ${
+        darkMode
+          ? 'border-darkTheme-300 text-darkTheme-50'
+          : 'text-lightTheme-400'
+      }`}
     >
       <span className="relative flex justify-center text-lightTheme-50">
         <input
@@ -14,7 +18,11 @@ const Todo = ({ todos, handleToggle, handleDelete }) => {
           id={todos.id}
           checked={todos.complete}
           onChange={(e) => handleToggle(todos.id, e.target.checked)}
-          className="relative w-5 aspect-square appearance-none rounded-full border border-slate-300 bg-slate-50 transition-colors duration-300 before:absolute before:inset-0 before:rounded-full after:absolute after:inset-0.5 after:rounded-full after:transition-colors after:duration-300 checked:border-none checked:bg-checkBoxColor hover:border-none before:hover:bg-checkBoxColor after:hover:bg-current after:checked:hover:bg-transparent cursor-pointer"
+          className={`relative w-5 aspect-square appearance-none rounded-full border ${
+            darkMode
+              ? 'border-darkTheme-200 bg-darkTheme-400 after:hover:bg-darkTheme-400'
+              : 'border-slate-300 bg-slate-50 after:hover:bg-slate-50'
+          } transition-colors duration-300 before:absolute before:inset-0 before:rounded-full after:absolute after:inset-0.5 after:rounded-full after:transition-colors after:duration-300 checked:border-none checked:bg-checkBoxColor hover:border-none before:hover:bg-checkBoxColor  after:checked:hover:bg-transparent cursor-pointer`}
         />
         <CheckIcon
           className={`${
@@ -35,7 +43,9 @@ const Todo = ({ todos, handleToggle, handleDelete }) => {
 
       <CrossIcon
         onClick={() => handleDelete(todos.id)}
-        className="cursor-pointer text-lightTheme-300 md:hidden"
+        className={`cursor-pointer  md:hidden ${
+          darkMode ? 'text-darkTheme-200' : 'text-lightTheme-300'
+        }`}
       />
     </li>
   );

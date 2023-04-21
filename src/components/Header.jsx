@@ -1,9 +1,9 @@
 import React from 'react';
 import desktopLight from '../assets/bg-desktop-light.jpg';
 import mobileLight from '../assets/bg-mobile-light.jpg';
-import { MoonIcon } from '../icons';
+import { MoonIcon, SunIcon } from '../icons';
 
-const Header = () => {
+const Header = ({ darkMode, toggleTheme }) => {
   return (
     <header>
       <picture>
@@ -15,7 +15,11 @@ const Header = () => {
         <h1 className="text-lightTheme-50 text-2xl md:text-3xl tracking-[10px] font-josefin">
           TODO
         </h1>
-        <MoonIcon />
+        {darkMode ? (
+          <SunIcon onClick={toggleTheme} className="cursor-pointer" />
+        ) : (
+          <MoonIcon onClick={toggleTheme} className="cursor-pointer" />
+        )}
       </section>
     </header>
   );

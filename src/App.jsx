@@ -14,6 +14,7 @@ const App = () => {
   });
   const [task, setTask] = useState('');
   const [filter, setFilter] = useState('All');
+  const [darkMode, setDarkMode] = useState(false);
 
   const FILTER_MAP = {
     All: () => true,
@@ -73,9 +74,17 @@ const App = () => {
 
   const completed = todos.filter((todo) => !todo.complete);
 
+  const toggleTheme = () => {
+    setDarkMode(!darkMode);
+  };
+
   return (
-    <section className="flex flex-col min-h-screen bg-lightTheme-100">
-      <Header />
+    <section
+      className={`flex flex-col min-h-screen transition-colors ${
+        darkMode ? 'bg-darkTheme-500' : 'bg-lightTheme-100'
+      }`}
+    >
+      <Header darkMode={darkMode} toggleTheme={toggleTheme} />
 
       <main>
         <section className="max-w-md mx-auto px-4 font-josefin xl:max-w-xl">
@@ -83,15 +92,21 @@ const App = () => {
             task={task}
             handleSubmit={handleSubmit}
             handleChange={handleChange}
+            darkMode={darkMode}
           />
 
-          <ul className="relative bg-lightTheme-50 rounded mt-4 mb-5 shadow-lg">
+          <ul
+            className={`relative rounded mt-4 mb-5 shadow-lg ${
+              darkMode ? 'bg-darkTheme-400' : 'bg-lightTheme-50'
+            }`}
+          >
             {todos.filter(FILTER_MAP[filter]).map((todo) => (
               <Todo
                 key={todo.id}
                 todos={todo}
                 handleToggle={handleToggle}
                 handleDelete={handleDelete}
+                darkMode={darkMode}
               />
             ))}
 
@@ -116,13 +131,20 @@ const App = () => {
           </ul>
 
           {todos.length !== 0 && (
-            <div className="flex items-center justify-center p-4 bg-lightTheme-50 rounded space-x-4 text-lightTheme-300 font-bold mb-10">
+            <div
+              className={`flex items-center justify-center p-4  rounded space-x-4  font-bold mb-10 ${
+                darkMode
+                  ? 'bg-darkTheme-400 text-darkTheme-100'
+                  : 'bg-lightTheme-50 text-lightTheme-300'
+              }`}
+            >
               {FILTER_NAMES.map((name) => (
                 <FilterButtons
                   key={name}
                   name={name}
                   setFilter={setFilter}
                   isPressed={name === filter}
+                  darkMode={darkMode}
                 />
               ))}
             </div>
