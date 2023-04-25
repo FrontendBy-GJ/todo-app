@@ -2,7 +2,7 @@ import React from 'react';
 
 const Input = ({ task, handleSubmit, handleChange, darkMode }) => {
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="relative z-50">
       <div
         className={`${
           darkMode ? 'bg-darkTheme-400' : 'bg-lightTheme-50'

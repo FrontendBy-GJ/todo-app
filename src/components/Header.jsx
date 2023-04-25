@@ -7,7 +7,7 @@ import { MoonIcon, SunIcon } from '../icons';
 
 const Header = ({ darkMode, toggleTheme }) => {
   return (
-    <header>
+    <header className="z-50">
       <picture>
         <source
           media="(max-width: 600px)"
