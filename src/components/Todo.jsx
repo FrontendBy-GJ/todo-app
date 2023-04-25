@@ -1,14 +1,35 @@
 import React from 'react';
 import { CheckIcon, CrossIcon } from '../icons';
+import { motion } from 'framer-motion';
 
 const Todo = ({ todos, handleToggle, handleDelete, darkMode }) => {
   return (
-    <li
+    <motion.li
+      initial={{ x: '100vw', opacity: 1 }}
+      exit={{
+        x: '-100vw',
+        opacity: 0,
+      }}
+      animate={{
+        x: 0,
+        opacity: 1,
+        transition: {
+          type: 'spring',
+          bounce: 0.2,
+          duration: 0.3,
+        },
+      }}
+      transition={{
+        duration: 0.3,
+        ease: 'easeOut',
+        type: 'spring',
+        bounce: 0.3,
+      }}
       key={todos.id}
       className={`border-b last:border-none flex justify-between items-center p-4 gap-2 md:gap-4 transition-colors duration-300  ${
         darkMode
-          ? 'border-darkTheme-300 text-darkTheme-50'
-          : 'text-lightTheme-400'
+          ? 'bg-darkTheme-400 border-darkTheme-300 text-darkTheme-50'
+          : 'bg-lightTheme-50 text-lightTheme-400'
       }`}
     >
       <span className="relative flex justify-center text-lightTheme-50">
@@ -47,7 +68,7 @@ const Todo = ({ todos, handleToggle, handleDelete, darkMode }) => {
           darkMode ? 'text-darkTheme-200' : 'text-lightTheme-300'
         }`}
       />
-    </li>
+    </motion.li>
   );
 };
 
