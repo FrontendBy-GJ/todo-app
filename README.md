@@ -49,4 +49,4 @@ Users should be able to:
 
 ## Author
 
-- Frontend Mentor - [@Garcia-Jr](https://www.frontendmentor.io/profile/Garcia-Jr)
+- Frontend Mentor - [@Garcia-Jr](https://www.frontendmentor.io/profile/FrontendBy-GJ)
